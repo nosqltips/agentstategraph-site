@@ -132,7 +132,7 @@ sg.set("/name", "prod", "init", category="Checkpoint")
 
 20 MCP tools. 137 tests. 6 reference implementations. Full RFC specification.
 
-**GitHub**: [github.com/nosqltips/StateGraph](https://github.com/nosqltips/StateGraph)
+**GitHub**: [github.com/nosqltips/AgentStateGraph](https://github.com/nosqltips/AgentStateGraph)
 
 ## What's Next
 
@@ -144,4 +144,4 @@ StateGraph is one of the missing infrastructure primitives for the intent-based 
 
 ---
 
-*Craig Brown -- [GitHub](https://github.com/nosqltips/StateGraph)*
+*Craig Brown -- [GitHub](https://github.com/nosqltips/AgentStateGraph)*
