@@ -14,18 +14,18 @@
   <link rel="icon" href="/favicon.svg" />
   <style>
     :root {
-      --accent: #06b6d4;
-      --accent-glow: #06b6d433;
-      --accent-subtle: #06b6d418;
-      --cyan: #38bdf8;
-      --bg-primary: #0a0f1a;
-      --bg-secondary: #111827;
-      --bg-tertiary: #1e293b;
-      --border: #1e3a5f;
-      --text-primary: #e0e0e0;
-      --text-secondary: #999;
-      --text-muted: #666;
-      --success: #00ff88;
+      --accent: #e8823a;
+      --accent-glow: #e8823a33;
+      --accent-subtle: #e8823a18;
+      --cyan: #eab308;
+      --bg-primary: #0e0c0a;
+      --bg-secondary: #181410;
+      --bg-tertiary: #241d16;
+      --border: #3a2e22;
+      --text-primary: #f0e6d6;
+      --text-secondary: #a89f91;
+      --text-muted: #6b6358;
+      --success: #7fb069;
       --warning: #f59e0b;
       --radius: 12px;
       --radius-sm: 8px;
@@ -39,19 +39,19 @@
     code { font-family: 'SF Mono', Menlo, Consolas, monospace; font-size: 0.9em; }
 
     /* Nav */
-    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 56px; display: flex; align-items: center; justify-content: center; background: rgba(15,15,26,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); opacity: 0; transform: translateY(-100%); transition: opacity 0.3s, transform 0.3s; pointer-events: none; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 56px; display: flex; align-items: center; justify-content: center; background: rgba(14,12,10,0.88); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); opacity: 0; transform: translateY(-100%); transition: opacity 0.3s, transform 0.3s; pointer-events: none; }
     .nav.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1100px; width: 100%; padding: 0 24px; }
-    .nav-logo { font-size: 16px; font-weight: 700; background: linear-gradient(135deg, #3b82f6, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .nav-logo { font-size: 16px; font-weight: 700; background: linear-gradient(135deg, #d97706, #e8823a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .nav-links { display: flex; gap: 24px; }
     .nav-links a { color: var(--text-secondary); font-size: 13px; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent); filter: none; }
 
     /* Hero */
     .hero { position: relative; text-align: center; padding: 120px 24px 80px; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; inset: 0; z-index: 0; background: radial-gradient(ellipse at 30% 50%, rgba(6,182,212,0.15), transparent 60%), radial-gradient(ellipse at 70% 50%, rgba(59,130,246,0.1), transparent 60%); background-size: 200% 200%; animation: gradientShift 8s ease infinite; }
+    .hero::before { content: ''; position: absolute; inset: 0; z-index: 0; background: radial-gradient(ellipse at 30% 50%, rgba(232,130,58,0.18), transparent 60%), radial-gradient(ellipse at 70% 50%, rgba(217,119,6,0.12), transparent 60%); background-size: 200% 200%; animation: gradientShift 8s ease infinite; }
     .hero > * { position: relative; z-index: 1; }
-    .hero h1 { font-size: 52px; font-weight: 800; letter-spacing: -1px; margin-bottom: 8px; background: linear-gradient(135deg, #3b82f6, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero h1 { font-size: 52px; font-weight: 800; letter-spacing: -1px; margin-bottom: 8px; background: linear-gradient(135deg, #d97706, #e8823a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .hero .tagline { font-size: 18px; color: var(--text-secondary); max-width: 700px; margin: 0 auto 8px; line-height: 1.6; }
     .hero .tagline em { color: var(--text-primary); font-style: normal; font-weight: 600; }
     .hero .subtitle { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; font-family: 'SF Mono', Menlo, Consolas, monospace; }
@@ -106,7 +106,7 @@
     /* Speculation mockup */
     .spec-branches { display: flex; gap: 8px; margin-bottom: 8px; }
     .spec-branch { flex: 1; background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 10px; border-top: 2px solid var(--accent); }
-    .spec-branch.winner { border-top-color: var(--success); box-shadow: 0 0 12px rgba(0,255,136,0.1); }
+    .spec-branch.winner { border-top-color: var(--success); box-shadow: 0 0 12px rgba(127,176,105,0.12); }
     .spec-branch.discarded { opacity: 0.5; border-top-color: var(--text-muted); }
     .spec-branch .spec-label { font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; margin-bottom: 4px; }
     .spec-branch.winner .spec-label { color: var(--success); }
@@ -342,20 +342,115 @@
   </div>
 </section>
 
-<!-- Languages -->
-<section class="section" data-reveal>
-  <div class="container" style="text-align:center">
+<!-- Bindings -->
+<section class="section" id="bindings" data-reveal>
+  <div class="container">
     <p class="section-label">Use It From Anywhere</p>
     <h2 class="section-title">One primitive, every language</h2>
-    <div class="lang-grid">
-      <span class="lang-pill">Rust (core)</span>
-      <span class="lang-pill">Python</span>
-      <span class="lang-pill">TypeScript / Node</span>
-      <span class="lang-pill">Go</span>
-      <span class="lang-pill">WASM / Browser</span>
-      <span class="lang-pill">C FFI</span>
-      <span class="lang-pill">MCP (26 tools)</span>
+    <p class="section-subtitle">Rust is the reference implementation. Every other binding rides on the same core and the same commit format &mdash; a Python agent and a Go agent can write to the same repository and see each other's intent annotations.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;max-width:1000px;margin:0 auto">
+      <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px">
+        <div style="font-size:13px;font-weight:700;color:var(--accent);font-family:'SF Mono',Menlo,monospace;margin-bottom:4px">Rust</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px">reference implementation &middot; BSL 1.1</div>
+        <pre style="font-size:11px;color:var(--text-secondary);background:var(--bg-primary);padding:8px 10px;border-radius:6px;overflow-x:auto;margin:0"><code>cargo add agentstategraph</code></pre>
+      </div>
+      <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px">
+        <div style="font-size:13px;font-weight:700;color:var(--accent);font-family:'SF Mono',Menlo,monospace;margin-bottom:4px">Python</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px">PyO3 wheels &middot; 3.10+</div>
+        <pre style="font-size:11px;color:var(--text-secondary);background:var(--bg-primary);padding:8px 10px;border-radius:6px;overflow-x:auto;margin:0"><code>pip install agentstategraph</code></pre>
+      </div>
+      <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px">
+        <div style="font-size:13px;font-weight:700;color:var(--accent);font-family:'SF Mono',Menlo,monospace;margin-bottom:4px">TypeScript / Node</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px">napi-rs prebuilds &middot; Node 18+</div>
+        <pre style="font-size:11px;color:var(--text-secondary);background:var(--bg-primary);padding:8px 10px;border-radius:6px;overflow-x:auto;margin:0"><code>npm install @agentstategraph/core</code></pre>
+      </div>
+      <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px">
+        <div style="font-size:13px;font-weight:700;color:var(--accent);font-family:'SF Mono',Menlo,monospace;margin-bottom:4px">Go</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px">cgo over the C FFI &middot; Go 1.22+</div>
+        <pre style="font-size:11px;color:var(--text-secondary);background:var(--bg-primary);padding:8px 10px;border-radius:6px;overflow-x:auto;margin:0"><code>go get github.com/nosqltips/AgentStateGraph/bindings/go</code></pre>
+      </div>
+      <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px">
+        <div style="font-size:13px;font-weight:700;color:var(--accent);font-family:'SF Mono',Menlo,monospace;margin-bottom:4px">WASM / Browser</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px">wasm-bindgen &middot; browser, Deno, Node</div>
+        <pre style="font-size:11px;color:var(--text-secondary);background:var(--bg-primary);padding:8px 10px;border-radius:6px;overflow-x:auto;margin:0"><code>npm install @agentstategraph/wasm</code></pre>
+      </div>
+      <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px">
+        <div style="font-size:13px;font-weight:700;color:var(--accent);font-family:'SF Mono',Menlo,monospace;margin-bottom:4px">C FFI</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px">stable C ABI &middot; header + static lib</div>
+        <pre style="font-size:11px;color:var(--text-secondary);background:var(--bg-primary);padding:8px 10px;border-radius:6px;overflow-x:auto;margin:0"><code>cargo build -p agentstategraph-ffi --release</code></pre>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:center;gap:12px;margin-top:20px;flex-wrap:wrap">
+      <span class="lang-pill">27 MCP tools</span>
       <span class="lang-pill">HTTP REST API</span>
+      <span class="lang-pill">Cross-binding parity tests</span>
+    </div>
+  </div>
+</section>
+
+<!-- Crates -->
+<section class="section" id="crates" style="padding-top:0" data-reveal>
+  <div class="container">
+    <p class="section-label">The Workspace</p>
+    <h2 class="section-title">Eight crates, one primitive</h2>
+    <p class="section-subtitle">ASG is a Cargo workspace: a small, I/O-free core; pluggable storage; a user-facing facade; and the extensions that make it useful across a fleet &mdash; tasks, migrations, MCP, FFI, WASM.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px">
+      <div style="background:var(--bg-secondary);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius-sm);padding:16px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:6px">
+          <code style="font-size:13px;font-weight:700;color:var(--accent)">agentstategraph-core</code>
+          <span style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px">core</span>
+        </div>
+        <p style="margin:0;font-size:13px;line-height:1.55;color:var(--text-secondary)">Content-addressed commits, intent categories, blame. Zero I/O dependencies &mdash; pure types and algorithms. Everything else builds on this.</p>
+      </div>
+      <div style="background:var(--bg-secondary);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius-sm);padding:16px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:6px">
+          <code style="font-size:13px;font-weight:700;color:var(--accent)">agentstategraph-storage</code>
+          <span style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px">storage</span>
+        </div>
+        <p style="margin:0;font-size:13px;line-height:1.55;color:var(--text-secondary)">Pluggable backends: in-memory for tests, SQLite for single-node, extensible for Postgres and S3-backed deployments. All behind one trait.</p>
+      </div>
+      <div style="background:var(--bg-secondary);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius-sm);padding:16px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:6px">
+          <code style="font-size:13px;font-weight:700;color:var(--accent)">agentstategraph</code>
+          <span style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px">facade</span>
+        </div>
+        <p style="margin:0;font-size:13px;line-height:1.55;color:var(--text-secondary)">The user-facing crate most callers depend on. Re-exports core + storage and presents the ergonomic <code style="font-size:11px">Repository</code> API &mdash; get, set, branch, merge, log, blame, speculate.</p>
+      </div>
+      <div style="background:var(--bg-secondary);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius-sm);padding:16px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:6px">
+          <code style="font-size:13px;font-weight:700;color:var(--accent)">agentstategraph-tasks</code>
+          <span style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px">new in 0.4</span>
+        </div>
+        <p style="margin:0;font-size:13px;line-height:1.55;color:var(--text-secondary)">Plans, tasks, assignments, blockers, derived status. A shared primitive so every ASG consumer &mdash; CTXone, ThreadWeaver, Console &mdash; agrees on what a "task" is. Prevents plan-rot across the fleet.</p>
+      </div>
+      <div style="background:var(--bg-secondary);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius-sm);padding:16px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:6px">
+          <code style="font-size:13px;font-weight:700;color:var(--accent)">agentstategraph-migrate</code>
+          <span style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px">new in 0.4</span>
+        </div>
+        <p style="margin:0;font-size:13px;line-height:1.55;color:var(--text-secondary)">Schema-version registry and migration runner. Tag your repo with a schema version; register forward migrations; run <code style="font-size:11px">migrate check</code> / <code style="font-size:11px">migrate run</code> on any ref.</p>
+      </div>
+      <div style="background:var(--bg-secondary);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius-sm);padding:16px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:6px">
+          <code style="font-size:13px;font-weight:700;color:var(--accent)">agentstategraph-mcp</code>
+          <span style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px">server</span>
+        </div>
+        <p style="margin:0;font-size:13px;line-height:1.55;color:var(--text-secondary)">Model Context Protocol server exposing 27 tools plus an HTTP REST API. Drop-in for Claude Desktop, Cursor, or any MCP-speaking agent.</p>
+      </div>
+      <div style="background:var(--bg-secondary);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius-sm);padding:16px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:6px">
+          <code style="font-size:13px;font-weight:700;color:var(--accent)">agentstategraph-ffi</code>
+          <span style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px">ffi</span>
+        </div>
+        <p style="margin:0;font-size:13px;line-height:1.55;color:var(--text-secondary)">Stable C ABI. What Go, and any future Java / Ruby / C# binding calls. One header, one static lib &mdash; no Rust toolchain needed on the consumer.</p>
+      </div>
+      <div style="background:var(--bg-secondary);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius-sm);padding:16px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:6px">
+          <code style="font-size:13px;font-weight:700;color:var(--accent)">agentstategraph-wasm</code>
+          <span style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px">wasm</span>
+        </div>
+        <p style="margin:0;font-size:13px;line-height:1.55;color:var(--text-secondary)">wasm-bindgen build for browsers, Deno, and Node. Run ASG in a browser tab against an in-memory repo &mdash; ideal for demos, client-side prototypes, and the Explorer.</p>
+      </div>
     </div>
   </div>
 </section>
