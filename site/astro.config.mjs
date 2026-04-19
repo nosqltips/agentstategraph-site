@@ -32,7 +32,7 @@ export default defineConfig({
 				{
 					label: 'Reference',
 					items: [
-						{ label: 'MCP Tools (20)', slug: 'reference/mcp-tools' },
+						{ label: 'MCP Tools (27)', slug: 'reference/mcp-tools' },
 						{ label: 'RFC Specification', slug: 'reference/rfc' },
 					],
 				},

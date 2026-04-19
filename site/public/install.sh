@@ -71,7 +71,7 @@ if [ -z "${VERSION}" ]; then
   fi
   if [ -z "${VERSION}" ]; then
     echo "Error: Could not determine latest version."
-    echo "Try: curl -sSL https://agentstategraph.dev/install.sh | sh -s -- --version v0.3.5-beta.2"
+    echo "Try: curl -sSL https://agentstategraph.dev/install.sh | sh -s -- --version v0.5.0-beta.1"
     exit 1
   fi
 fi

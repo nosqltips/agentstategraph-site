@@ -130,7 +130,7 @@ sg.set("/name", "prod", "init", category="Checkpoint")
 
 **From TypeScript, Go, or WASM** -- all supported.
 
-20 MCP tools. 137 tests. 6 reference implementations. Full RFC specification.
+27 MCP tools. 220+ tests across 8 crates. Full RFC specification.
 
 **GitHub**: [github.com/nosqltips/AgentStateGraph](https://github.com/nosqltips/AgentStateGraph)
 
